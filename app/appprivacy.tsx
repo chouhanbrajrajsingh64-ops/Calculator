@@ -1,12 +1,23 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 
-export default function Privacy() {
+export default function PrivacyPolicy() {
   return (
-    <View style={{ padding: 16 }}>
-      <Text style={{ fontSize: 14 }}>
-        This calculator does not collect, store, or transmit personal data.
-        All calculations and history remain locally on the user’s device.
+    <ScrollView contentContainerStyle={{ padding: 20 }}>
+      <Text style={{ fontSize: 22, fontWeight: "bold", marginBottom: 12 }}>
+        Privacy Policy
       </Text>
-    </View>
+
+      <Text style={{ fontSize: 16, marginBottom: 10 }}>
+        This calculator app does not collect, store, or share any personal data.
+      </Text>
+
+      <Text style={{ fontSize: 16, marginBottom: 10 }}>
+        All calculations are performed locally on your device or browser.
+      </Text>
+
+      <Text style={{ fontSize: 16 }}>
+        If you have any questions, contact the developer via GitHub.
+      </Text>
+    </ScrollView>
   );
 }

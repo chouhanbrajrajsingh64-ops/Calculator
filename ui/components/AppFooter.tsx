@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Linking } from "react-native";
+import { Link } from "expo-router";
 
 export default function AppFooter() {
   return (
@@ -12,13 +13,13 @@ export default function AppFooter() {
           }
         >
           Brajraj Singh Chouhan
-        </Text>
+        </Text>© 2025 Web Calculator
       </Text>
 
       <Text
         style={styles.link}
         onPress={() =>
-          Linking.openURL("/privacy")
+          Linking.openURL("/appprivacy")
         }
       >
         Privacy Policy
