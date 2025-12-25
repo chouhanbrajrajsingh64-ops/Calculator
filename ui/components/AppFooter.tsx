@@ -13,17 +13,14 @@ export default function AppFooter() {
           }
         >
           Brajraj Singh Chouhan
-        </Text>© 2025 Web Calculator
+        </Text>{" "}
+         © 2025 Web Calculator
       </Text>
 
-      <Text
-        style={styles.link}
-        onPress={() =>
-          Linking.openURL("/appprivacy")
-        }
-      >
+      {/* INTERNAL ROUTE — MUST USE Link */}
+      <Link href="/appprivacy" style={styles.link}>
         Privacy Policy
-      </Text>
+      </Link>
     </View>
   );
 }
@@ -39,6 +36,7 @@ const styles = StyleSheet.create({
   },
   link: {
     fontSize: 12,
-    color: "#7082a9ff",
+    color: "#0051ffff",
+    marginTop: 4,
   },
 });
