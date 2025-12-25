@@ -14,11 +14,10 @@ export default function AppFooter() {
         >
           Brajraj Singh Chouhan
         </Text>{" "}
-         © 2025 Web Calculator
+        © 2025 Web Calculator
       </Text>
 
-      {/* INTERNAL ROUTE — MUST USE Link */}
-      <Link href="/appprivacy" style={styles.link}>
+      <Link href="/privacy" style={styles.link}>
         Privacy Policy
       </Link>
     </View>
