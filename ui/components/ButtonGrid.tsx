@@ -1,7 +1,7 @@
 import { View, Pressable, Text, StyleSheet } from 'react-native'
 import { useTheme } from '../theme/ThemeContext'
 
-type Operator = '+' | '-' | '*' | '/'
+type Operator = '+' | '-' | '*' | '/' | '%'
 
 type Props = {
   onDigit: (d: string) => void
@@ -89,17 +89,19 @@ export function ButtonGrid({
       <Btn label="4" onPress={() => onDigit('4')} />
       <Btn label="5" onPress={() => onDigit('5')} />
       <Btn label="6" onPress={() => onDigit('6')} />
-      <Btn label="⌫" onPress={onBackspace} variant="function" />
+      <Btn label="%" onPress={() => onOperator('%')} variant="operator" active={activeOperator === '%'} />
 
       {/* Row 4 */}
       <Btn label="1" onPress={() => onDigit('1')} />
       <Btn label="2" onPress={() => onDigit('2')} />
       <Btn label="3" onPress={() => onDigit('3')} />
-      <Btn label="=" onPress={onEquals} variant="equals" />
+      <Btn label="⌫" onPress={onBackspace} variant="function" />
 
       {/* Row 5 */}
-      <Btn label="0" onPress={() => onDigit('0')} wide />
       <Btn label="." onPress={onDecimal} />
+      <Btn label="0" onPress={() => onDigit('0')} wide />
+      <Btn label="=" onPress={onEquals} variant="equals" />
+      
     </View>
   )
 }
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
   },
 
   wide: {
-    width: '75%',
+    width: '50%',
   },
 
   text: {

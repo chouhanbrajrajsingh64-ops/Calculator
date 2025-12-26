@@ -1,4 +1,6 @@
 // ui/theme/types.ts
+export type Operator = '+' | '-' | '*' | '/' | '%'
+
 export type AppTheme = {
   background: string
   displayBg: string

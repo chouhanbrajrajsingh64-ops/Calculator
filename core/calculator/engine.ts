@@ -104,6 +104,24 @@ export function chooseOperator(
   }
 }
 
+export function backspace(
+  state: CalculatorState
+): CalculatorState {
+  if (state.error) return state
+
+  if (state.currentValue.length <= 1) {
+    return {
+      ...state,
+      currentValue: '0',
+    }
+  }
+
+  return {
+    ...state,
+    currentValue: state.currentValue.slice(0, -1),
+  }
+}
+
 // ==============================
 // Calculation + History
 // ==============================
@@ -133,21 +151,40 @@ export function calculate(
     case '+':
       result = a + b
       break
+
     case '-':
       result = a - b
       break
+
     case '*':
       result = a * b
       break
+
     case '/':
       result = a / b
       break
+
+    case '%':
+      /**
+       * Percent behavior:
+       * If previous value exists → a * (b / 100)
+       * Else → b / 100
+       */
+      result =
+        previousValue !== null
+          ? a * (b / 100)
+          : b / 100
+      break
+
     default:
       return state
   }
 
-  const resultStr = String(result)
-  const expression = `${previousValue} ${operator} ${currentValue}`
+  const resultStr = Number(result.toFixed(10)).toString()
+  const expression =
+    operator === '%'
+      ? `${previousValue ?? ''} ${currentValue}%`
+      : `${previousValue} ${operator} ${currentValue}`
 
   return {
     ...state,
@@ -165,24 +202,3 @@ export function calculate(
   }
 }
 
-// ==============================
-// Backspace
-// ==============================
-
-export function backspace(
-  state: CalculatorState
-): CalculatorState {
-  if (state.error) return state
-
-  if (state.currentValue.length <= 1) {
-    return {
-      ...state,
-      currentValue: '0',
-    }
-  }
-
-  return {
-    ...state,
-    currentValue: state.currentValue.slice(0, -1),
-  }
-}

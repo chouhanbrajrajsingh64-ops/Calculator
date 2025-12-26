@@ -4,7 +4,7 @@ import { useTheme } from '@/ui/theme/ThemeContext'
 type Props = {
   value: string
   previous?: string | null
-  operator?: '+' | '-' | '*' | '/' | null
+  operator?: '+' | '-' | '*' | '/' | '%' | null
   error?: string | null
 }
 

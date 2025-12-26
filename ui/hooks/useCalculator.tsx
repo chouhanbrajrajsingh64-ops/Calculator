@@ -67,7 +67,7 @@ export function useCalculator() {
   const onKey = (key: string) => {
     if (key >= '0' && key <= '9') return digit(key)
     if (key === '.') return decimal()
-    if (['+', '-', '*', '/'].includes(key))
+    if (['+', '-', '*', '/', '%'].includes(key))
       return operator(key as Operator)
     if (key === 'Enter' || key === '=') return equals()
     if (key === 'Backspace') return backspace()
